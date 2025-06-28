@@ -5,6 +5,15 @@ This is a simple inventory and sales management application built with **Laravel
 
 ---
 
+## ⚙️ Requirements
+
+- **PHP 8.2**
+- **Composer**
+- **Laravel 12**
+- A database (e.g., MySQL)
+
+---
+
 ## 🚀 Features
 
 ### ✅ Inventory Module
