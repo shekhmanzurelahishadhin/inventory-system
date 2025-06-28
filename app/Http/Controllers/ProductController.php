@@ -33,8 +33,8 @@ class ProductController extends Controller
             'stock.integer' => 'stock quantity must be an integer.',
         ]);
 
-
-        $product = Product::create($request->all());
+        $data = $request->except('_token');
+        $product = Product::create($data);
 
 
         $openingAmount = $request->purchase_price * $request->stock;
