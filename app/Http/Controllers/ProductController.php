@@ -23,11 +23,20 @@ class ProductController extends Controller
             'purchase_price' => 'required|numeric',
             'sell_price' => 'required|numeric',
             'stock' => 'required|integer',
+        ],[
+            'name.required' => 'product name is required.',
+            'purchase_price.required' => 'purchase price is required.',
+            'purchase_price.numeric' => 'purchase price must be a number.',
+            'sell_price.required' => 'selling price is required.',
+            'sell_price.numeric' => 'selling price must be a number.',
+            'stock.required' => 'stock quantity is required.',
+            'stock.integer' => 'stock quantity must be an integer.',
         ]);
+
 
         $product = Product::create($request->all());
 
-        // Create journal entry for opening stock
+
         $openingAmount = $request->purchase_price * $request->stock;
         Journal::create([
             'product_id' => $product->id,
